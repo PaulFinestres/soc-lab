@@ -7,7 +7,7 @@ Current scope: the network foundation and the first network-detection component.
 **Estimated duration:** 10–12 hours  
 **Status:** Completed
 
-Build the isolated virtual network, configure Proxmox networking and OPNsense, define VLANs and IP addressing, and validate connectivity, DNS and administrative access.
+Build the virtual network, configure Proxmox networking and OPNsense, define VLANs and IP addressing, and validate connectivity, DNS and administrative access.
 
 ## Lab 5.2 – Suricata IDS on OPNsense
 
