@@ -98,7 +98,13 @@ The following checks were used to verify the main services configured in this la
 
 ## Challenges & Troubleshooting
 
-- **Outbound NAT interface assignment:** During configuration, one source NAT rule was assigned to the wrong interface. The rule was corrected so that outbound translations for the internal VLANs use `WAN_HOME`.
+- **Outbound NAT configuration**
+
+  Internal VLANs initially lacked proper outbound connectivity due to an incorrect interface assignment in the outbound NAT rules. Reviewing the source translation and correcting the interface to `WAN_HOME` resolved the issue.
+
+- **Linux network configuration with Netplan**
+
+  Configuring static network settings on Ubuntu required understanding how Netplan manages network configuration and delegates it to its renderer (`systemd-networkd`). This provided practical experience with YAML-based network configuration and the underlying Linux networking services.
 
 ## Takeaways
 
