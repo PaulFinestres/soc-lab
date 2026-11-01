@@ -129,3 +129,9 @@ This lab provided practical experience with virtual network design, VLAN segment
 ## Next step
 
 **Lab 5.2 – Suricata IDS on OPNsense:** configure network intrusion detection and validate alert generation using controlled test traffic.
+
+
+## Credits
+
+Architecture diagram created with Excalidraw.
+Some icons are based on shapes from draw.io (diagrams.net).
