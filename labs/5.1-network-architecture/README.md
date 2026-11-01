@@ -1,5 +1,11 @@
 # Lab 5.1 – Network Architecture & Infrastructure
 
+![Proxmox VE](https://custom-icon-badges.demolab.com/badge/Proxmox_VE-E57000?logo=proxmox&logoColor=white)
+![OPNsense](https://custom-icon-badges.demolab.com/badge/OPNsense-EF7B4D?logo=opnsense&logoColor=white)
+![Ubuntu Server](https://custom-icon-badges.demolab.com/badge/Ubuntu_Server-E95420?logo=ubuntu&logoColor=white)
+![Debian](https://custom-icon-badges.demolab.com/badge/Debian-A81D33?logo=debian&logoColor=white)
+![Windows Server](https://custom-icon-badges.demolab.com/badge/Windows_Server-0078D6?logo=windows11&logoColor=white)
+
 **Status:** Completed  
 **Estimated duration:** 10–12 hours
 
@@ -7,7 +13,6 @@ Lab 5.1 establishes the virtual network foundation for the SOC environment. It c
 
 ## Table of Contents
 
-- [Overview](#overview)
 - [Infrastructure](#infrastructure)
 - [Network Architecture](#network-architecture)
 - [IP Addressing](#ip-addressing)
