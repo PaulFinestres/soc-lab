@@ -1,0 +1,15 @@
+network:
+  ethernets:
+    ens19:
+      accept-ra: true
+      addresses:
+      - 172.20.80.10/28
+      nameservers:
+        addresses:
+        - 10.0.50.10
+        search:
+        - paul.lan
+      routes:
+      - to: default
+        via: 172.20.80.14
+  version: 2
