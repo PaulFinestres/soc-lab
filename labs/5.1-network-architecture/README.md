@@ -29,7 +29,7 @@ The lab is hosted on Proxmox VE. The virtual machines are separated by role, wit
 | Proxmox VE | Hypervisor |
 | OPNsense (`soc-fw-01`) | Firewall and router |
 | Windows Server (`soc-ad-01`) | Active Directory and DNS |
-| Ubuntu Server 26.04.1 (`soc-siem-01`) | SOC / SIEM server |
+| Ubuntu Server 26.04.1 (`soc-siem-01`) | SOC / Monitoring server |
 | Debian with GUI (`soc-adm-01`) | Administration workstation |
 | Kali Linux (`soc-attack-01`) | Attack simulation workstation |
 | Debian Server (`soc-dmz-01`) | DMZ host |
@@ -104,23 +104,27 @@ The following checks were used to verify the main services configured in this la
 - **DNS:** forward lookup of the Active Directory server and reverse lookup of the SOC server address (`172.20.80.10`).
 - **SSH:** successful remote connection to the SOC server from the administration workstation using WindTerm.
 - **SSH hardening:** confirmation of the effective SSH daemon settings.
-- **Outbound NAT:** review of the manual source NAT rules on OPNsense.
+- **Outbound NAT:** verification of outbound connectivity from internal VLANs.
 
 ![Successful SSH connection to the SOC server](evidence/07-ssh-connection.png)
 
 ## Challenges & Troubleshooting
 
+- **SSH configuration management**
+
+Configuring SSH hardening required investigating how OpenSSH loads and applies its configuration. Additional configuration files under sshd_config.d/ affected the effective settings, making it necessary to inspect the included files and verify the final configuration using sshd -T.
+
+- **Network profile configuration**
+
+  Switching the administration workstation from a temporary WAN connection to the internal LAN connection caused unexpected network configuration issues. The existing connection profile was still being applied, preventing the new configuration from taking effect. After investigating the network configuration files under `/run/`, the issue was identified through the graphical network manager, where the incorrect profile was still active.
+
 - **Outbound NAT configuration**
 
-  Internal VLANs initially lacked proper outbound connectivity due to an incorrect interface assignment in the outbound NAT rules. Reviewing the source translation and correcting the interface to `WAN_HOME` resolved the issue.
-
-- **Linux network configuration with Netplan**
-
-  Configuring static network settings on Ubuntu required understanding how Netplan manages network configuration and delegates it to its renderer (`systemd-networkd`). This provided practical experience with YAML-based network configuration and the underlying Linux networking services.
+Internal VLANs initially lacked proper outbound connectivity due to an incorrect interface assignment in the outbound NAT rules. Reviewing the source translation and correcting the interface to `WAN_HOME` resolved the issue.
 
 ## Takeaways
 
-This lab provided practical experience with virtual network design, VLAN-based segmentation, firewall routing, outbound NAT, internal DNS and secure remote administration. It also reinforced the importance of checking interface assignments and validating each service after configuration.
+This lab provided practical experience with virtual network design, VLAN segmentation, firewall routing and secure remote administration. It also highlighted the importance of validating network configurations and troubleshooting connectivity issues systematically.
 
 ## Next step
 
