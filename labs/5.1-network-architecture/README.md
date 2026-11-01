@@ -3,25 +3,34 @@
 **Status:** Completed  
 **Estimated duration:** 10–12 hours
 
-## Objective
+Lab 5.1 establishes the virtual network foundation for the SOC environment. It covers the Proxmox infrastructure, network segmentation, routing through OPNsense, and the basic services required to administer and validate the environment.
 
-Build the network foundation for the SOC lab. This includes the virtual infrastructure, network segmentation, routing, firewall policy and basic service validation.
+## Infrastructure
 
-## Environment
+The lab is hosted on Proxmox VE. The virtual machines are separated by role, with OPNsense providing routing and firewalling between the lab networks.
 
-- **Hypervisor:** Proxmox VE
-- **Firewall/router:** OPNsense
-- **Directory and DNS:** Windows Server / Active Directory
-- **SOC server:** Ubuntu Server 26.04.1 LTS
-- **Administration:** Windows workstation with SSH access through WindTerm
+| Component | Role |
+|---|---|
+| Proxmox VE | Hypervisor |
+| OPNsense (`soc-fw-01`) | Firewall and router |
+| Windows Server (`soc-ad-01`) | Active Directory and DNS |
+| Ubuntu Server 26.04.1 (`soc-siem-01`) | SOC / SIEM server |
+| Debian with GUI (`soc-adm-01`) | Administration workstation |
+| Kali Linux (`soc-attack-01`) | Attack simulation workstation |
+| Debian Server (`soc-dmz-01`) | DMZ host |
+| Windows 11 (`soc-cli-01`) | Client workstation |
 
-## Network architecture
+The Proxmox inventory below shows the virtual machines deployed for this lab.
+
+![Proxmox SOC VM inventory](evidence/01-proxmox-vm-inventory.png)
+
+## Network Architecture
+
+The network is divided into VLANs according to the role of each environment. OPNsense acts as the central router and firewall, controlling inter-VLAN traffic and providing outbound connectivity through the home network.
 
 ![SOC network architecture](architecture.png)
 
-The lab is divided into separate VLANs for clients, attack simulation, DMZ, servers, SOC services, administration and infrastructure management.
-
-## VLAN addressing
+### IP addressing
 
 | VLAN | Name | Network | Gateway |
 |---:|---|---|---|
@@ -33,67 +42,57 @@ The lab is divided into separate VLANs for clients, attack simulation, DMZ, serv
 | 90 | ADMIN | `192.168.90.0/28` | `192.168.90.14` |
 | 99 | INFRA-MGMT | `192.168.99.96/28` | `192.168.99.110` |
 
-## Virtual machines
-
-The Proxmox resource pool contains the following lab VMs:
-
-| VM ID | Name | Role |
-|---:|---|---|
-| 600 | `soc-fw-01` | OPNsense firewall |
-| 601 | `soc-adm-01` | Administration workstation |
-| 602 | `soc-attack-01` | Attack simulation workstation |
-| 604 | `soc-dmz-01` | DMZ host |
-| 605 | `soc-ad-01` | Active Directory and DNS |
-| 607 | `soc-siem-01` | SOC / SIEM server |
-| 608 | `soc-cli-01` | Client workstation |
-
-## Configuration and validation
+## Implementation
 
 ### OPNsense
 
-- Configured the WAN connection and upstream gateway.
-- Created the VLAN interfaces and their gateway addresses.
-- Applied interface firewall rules for the services currently required by the lab.
-- Configured manual outbound source NAT for the lab networks, translating traffic to the OPNsense WAN address (`192.168.1.200`).
-- Confirmed outbound connectivity from the relevant internal networks.
+OPNsense provides the layer 3 gateways for the lab VLANs. Its WAN interface, `WAN_HOME`, uses the static address `192.168.1.200/24` on the home network, with `192.168.1.254` as the upstream gateway.
+
+Outbound source NAT is configured manually. Traffic from the internal VLANs is translated to the OPNsense WAN address when leaving through `WAN_HOME`.
+
+![OPNsense dashboard](evidence/02-opnsense-dashboard.png)
+
+**Manual outbound NAT configuration:**
+
+![OPNsense outbound NAT rules](evidence/03-opnsense-source-nat.png)
+
+### Administration access
+
+The administration workstation (`soc-adm-01`) is used to manage the lab systems. Remote access to the SOC server is provided over SSH on TCP port `3333`.
+
+SSH is configured for public-key authentication, with password authentication and root login disabled. The effective daemon configuration was checked with `sshd -T`.
+
+![Effective SSH configuration](evidence/04-ssh-hardening.png)
 
 ### DNS
 
-The Active Directory DNS server is `10.0.50.10`, with the internal DNS domain `paul.lan`.
+The Active Directory server at `10.0.50.10` provides internal DNS for the `paul.lan` domain. The SOC server uses this address as its DNS resolver.
 
-Validation included:
-- Forward lookup of `soc-ad1.paul.lan`.
-- Reverse lookup of `172.20.80.10`, resolving to `soc-wazuh1.paul.lan`.
-- Confirmation that the SOC server uses `10.0.50.10` as its DNS resolver.
+Forward and reverse lookups were checked to confirm name resolution for the internal systems.
 
-### SSH administration
+![DNS forward lookup](evidence/06-dns-forward-lookup.png)
 
-Remote access from the administration workstation to the SOC server was validated using WindTerm.
+![DNS reverse lookup](evidence/05-dns-reverse-lookup.png)
 
-SSH is configured with:
-- Public-key authentication enabled.
-- Password authentication disabled.
-- Root login disabled.
-- SSH listening on TCP port `3333`.
+## Verification
 
-## Evidence
+The following checks were used to verify the main services configured in this lab:
 
-Screenshots supporting the configuration and validation are stored in [`evidence/`](evidence/).
+- **DNS:** forward lookup of the Active Directory server and reverse lookup of the SOC server address (`172.20.80.10`).
+- **SSH:** successful remote connection to the SOC server from the administration workstation using WindTerm.
+- **SSH hardening:** confirmation of the effective SSH daemon settings.
+- **Outbound NAT:** review of the manual source NAT rules on OPNsense.
 
-| File | Evidence |
-|---|---|
-| `01-proxmox-vm-inventory.png` | SOC virtual machines in the Proxmox resource pool |
-| `02-opnsense-dashboard.png` | OPNsense system, gateway and interface status |
-| `03-opnsense-source-nat.png` | Manual outbound source NAT rules |
-| `04-ssh-hardening.png` | Effective SSH daemon security settings |
-| `05-dns-reverse-lookup.png` | Reverse DNS lookup for the SOC server |
-| `06-dns-forward-lookup.png` | Forward DNS lookup for the AD server |
-| `07-ssh-connection.png` | Successful SSH administration session |
+![Successful SSH connection to the SOC server](evidence/07-ssh-connection.png)
 
-## Result
+## Challenges & Troubleshooting
 
-The virtual network is deployed and basic connectivity has been validated. OPNsense provides routing, firewalling and outbound NAT between the lab networks. DNS resolution and secured SSH administration to the SOC server are working.
+- **Outbound NAT interface assignment:** During configuration, one source NAT rule was assigned to the wrong interface. The rule was corrected so that outbound translations for the internal VLANs use `WAN_HOME`.
+
+## Takeaways
+
+This lab provided practical experience with virtual network design, VLAN-based segmentation, firewall routing, outbound NAT, internal DNS and secure remote administration. It also reinforced the importance of checking interface assignments and validating each service after configuration.
 
 ## Next step
 
-**Lab 5.2 – Suricata IDS on OPNsense:** deploy and configure network intrusion detection, then validate alert generation using controlled test traffic.
+**Lab 5.2 – Suricata IDS on OPNsense:** configure network intrusion detection and validate alert generation using controlled test traffic.
