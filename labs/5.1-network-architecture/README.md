@@ -21,10 +21,10 @@ The lab runs on Proxmox VE. OPNsense provides routing, firewall policy and outbo
 | OPNsense (`soc-fw-01`) | Firewall and router |
 | Windows Server (`soc-ad-01`) | Active Directory and DNS |
 | Ubuntu Server 26.04.1 (`soc-siem-01`) | SOC / SIEM server |
-| `soc-adm-01` | Administration workstation |
-| `soc-attack-01` | Attack simulation workstation |
-| `soc-dmz-01` | DMZ host |
-| `soc-cli-01` | Client workstation |
+| Debian with GUI (`soc-adm-01`) | Administration workstation |
+| Kali Linux (`soc-attack-01`) | Attack simulation workstation |
+| Debian Server (`soc-dmz-01`) | DMZ host |
+| Windows 11 (`soc-cli-01`) | Client workstation |
 
 ### Virtual machines
 
