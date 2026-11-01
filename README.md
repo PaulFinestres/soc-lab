@@ -28,7 +28,10 @@ See [ROADMAP.md](ROADMAP.md) for the current scope.
     └── 5.1-network-architecture/
         ├── README.md
         ├── architecture.png
+        ├── configs/
+        │   ├── netplan/
+        │   └── ssh/
         └── evidence/
 ```
 
-Each lab contains its own documentation and supporting evidence.
+Each lab contains its own documentation, configuration examples and supporting evidence.
