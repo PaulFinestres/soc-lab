@@ -67,6 +67,12 @@ Outbound source NAT is configured manually. Traffic from the internal VLANs is t
 
 ![OPNsense outbound NAT rules](evidence/03-opnsense-source-nat.png)
 
+### Network Configuration
+
+The SOC server (`soc-siem-01`) uses Netplan to configure its network interface with a static IP address, DNS resolver and default gateway.
+
+Configuration: [01-network.yaml](configs/netplan/01-network.yaml)
+
 ### Administration access
 
 The administration workstation (`soc-adm-01`) is used to manage the lab systems. Remote access to the SOC server is provided over SSH on TCP port `3333`.
