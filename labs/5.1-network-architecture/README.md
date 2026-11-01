@@ -5,6 +5,17 @@
 
 Lab 5.1 establishes the virtual network foundation for the SOC environment. It covers the Proxmox infrastructure, network segmentation, routing through OPNsense, and the basic services required to administer and validate the environment.
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Infrastructure](#infrastructure)
+- [Network Architecture](#network-architecture)
+- [IP Addressing](#ip-addressing)
+- [Implementation](#implementation)
+- [Verification](#verification)
+- [Challenges & Troubleshooting](#challenges--troubleshooting)
+- [Takeaways](#takeaways)
+
 ## Infrastructure
 
 The lab is hosted on Proxmox VE. The virtual machines are separated by role, with OPNsense providing routing and firewalling between the lab networks.
