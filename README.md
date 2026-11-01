@@ -17,6 +17,7 @@ The project is organised into independent labs, each covering a specific aspect 
 ## Overall Network Architecture
 
 ![SOC lab network architecture](labs/5.1-network-architecture/architecture.png)
+- *Diagram created with Excalidraw. It provides a simplified overview of the lab's network architecture.*
 
 ## Labs
 
