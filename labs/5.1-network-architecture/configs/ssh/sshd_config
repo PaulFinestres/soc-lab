@@ -1,0 +1,27 @@
+# SSH Server Configuration
+
+# Network
+Port 3333
+AddressFamily any
+
+# Authentication
+PermitRootLogin no
+PubkeyAuthentication yes
+PasswordAuthentication no
+KbdInteractiveAuthentication no
+UsePAM yes
+MaxAuthTries 3
+LoginGraceTime 30
+
+# Session and forwarding
+X11Forwarding no
+AllowAgentForwarding no
+AllowTcpForwarding no
+PermitTunnel no
+
+# Logging
+SyslogFacility AUTH
+LogLevel VERBOSE
+
+# SFTP
+Subsystem sftp /usr/lib/openssh/sftp-server
