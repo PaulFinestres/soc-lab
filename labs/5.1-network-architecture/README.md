@@ -79,6 +79,8 @@ The administration workstation (`soc-adm-01`) is used to manage the lab systems.
 
 SSH is configured for public-key authentication, with password authentication and root login disabled. The effective daemon configuration was checked with `sshd -T`.
 
+Configuration: [sshd_config](configs/ssh/sshd_config)
+
 ![Effective SSH configuration](evidence/04-ssh-hardening.png)
 
 ### DNS
