@@ -112,11 +112,11 @@ The following checks were used to verify the main services configured in this la
 
 - **SSH configuration management**
 
-Configuring SSH hardening required investigating how OpenSSH loads and applies its configuration. Additional configuration files under sshd_config.d/ affected the effective settings, making it necessary to inspect the included files and verify the final configuration using sshd -T.
+Configuring SSH hardening required investigating how OpenSSH loads and applies its configuration. Additional configuration files under sshd_config.d/ affected the effective settings, making it necessary to inspect the included files and verify the   final configuration using sshd -T.
 
 - **Network profile configuration**
 
-  Switching the administration workstation from a temporary WAN connection to the internal LAN connection caused unexpected network configuration issues. The existing connection profile was still being applied, preventing the new configuration from taking effect. After investigating the network configuration files under `/run/`, the issue was identified through the graphical network manager, where the incorrect profile was still active.
+Switching the administration workstation from a temporary WAN connection to the internal LAN connection caused unexpected network configuration issues. The existing connection profile was still being applied, preventing the new configuration   from taking effect. After investigating the network configuration files under `/run/`, the issue was identified through the graphical network manager, where the incorrect profile was still active.
 
 - **Outbound NAT configuration**
 
