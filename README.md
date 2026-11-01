@@ -1,4 +1,4 @@
-# SOC Lab
+# SOC Lab – Network Security & Monitoring
 
 A personal virtual lab focused on network administration, defensive security and security monitoring.
 
