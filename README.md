@@ -1,8 +1,10 @@
 # SOC Lab – Network Security & Monitoring
 
-A personal virtual lab focused on network administration, defensive security and security monitoring.
+A virtual lab focused on network administration, defensive security and security monitoring.
 
-The environment runs on **Proxmox VE**, with **OPNsense** providing routing and firewalling. The project is divided into smaller labs that can be built, tested and documented independently.
+Hosted on **Proxmox VE**, the environment uses **OPNsense** for routing, firewalling and network segmentation. It integrates security tools such as **Suricata** for intrusion detection and prevention (IDS/IPS) and **Wazuh** for security monitoring and log analysis.
+
+The project is organised into independent labs, each covering a specific aspect of the infrastructure and its security capabilities.
 
 ## Network architecture
 
