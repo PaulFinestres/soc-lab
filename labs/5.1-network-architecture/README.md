@@ -7,7 +7,6 @@
 ![Windows Server](https://custom-icon-badges.demolab.com/badge/Windows_Server-0078D6?logo=windows11&logoColor=white)
 
 **Status:** Completed  
-**Estimated duration:** 10–12 hours
 
 Lab 5.1 establishes the virtual network foundation for the SOC environment. It covers the Proxmox infrastructure, network segmentation, routing through OPNsense, and the basic services required to administer and validate the environment.
 
