@@ -24,7 +24,7 @@ The project is organised into independent labs, each covering a specific aspect 
 | Lab | Subject | Status |
 |---|---|---|
 | [5.1 – Network Architecture & Infrastructure](labs/5.1-network-architecture/README.md) | Virtual infrastructure, VLANs, routing and basic service validation | Completed |
-| 5.2 – Suricata IDS on OPNsense | Network intrusion detection and alert validation | Next |
+| 5.2 – Suricata IDS/IPS on OPNsense | Network intrusion detection, prevention and alert validation | Next |
 
 See [ROADMAP.md](ROADMAP.md) for the current scope.
 
