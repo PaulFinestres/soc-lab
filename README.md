@@ -8,7 +8,7 @@
 
 A virtual lab focused on network administration, defensive security and security monitoring.
 
-Hosted on **Proxmox VE**, the environment uses **OPNsense** for routing, firewalling and network segmentation. The project aims to integrate **Suricata** for intrusion detection and prevention (IDS/IPS), alongside **Wazuh** for security monitoring, log collection and analysis.
+Hosted on **Proxmox VE**, the environment uses **OPNsense** for routing, firewalling and network segmentation. **Suricata** provides network intrusion detection and prevention (IDS/IPS), while **Wazuh** is planned for centralised security monitoring, log collection and analysis.
 
 **Kali Linux** is used as a supporting tool to simulate attacks and generate network traffic, allowing the defensive capabilities of the infrastructure to be tested and evaluated.
 
