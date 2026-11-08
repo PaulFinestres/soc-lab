@@ -128,8 +128,6 @@ This lab provided practical experience with virtual network design, VLAN segment
 
 ## Next step
 
-## Next step
-
 **Lab 5.2 – Suricata IDS/IPS on OPNsense:** configure network intrusion detection and prevention, integrate rule sets and custom signatures, and validate alert generation and traffic blocking using controlled test traffic.
 
 ## Credits
