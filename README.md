@@ -24,7 +24,8 @@ The project is organised into independent labs, each covering a specific aspect 
 | Lab | Subject | Status |
 |---|---|---|
 | [5.1 – Network Architecture & Infrastructure](labs/5.1-network-architecture/README.md) | Virtual infrastructure, VLANs, routing and basic service validation | Completed |
-| 5.2 – Suricata IDS/IPS on OPNsense | Network intrusion detection, prevention and alert validation | Next |
+| [5.2 – Suricata IDS/IPS on OPNsense](labs/5.2-suricata-ids-ips/README.md) | Network intrusion detection, prevention and alert validation | In progress |
+| 5.3 – Wazuh SIEM | Centralised security event collection and analysis | Planned |
 
 See [ROADMAP.md](ROADMAP.md) for the current scope.
 
@@ -36,11 +37,16 @@ See [ROADMAP.md](ROADMAP.md) for the current scope.
 ├── ROADMAP.md
 ├── .gitignore
 └── labs/
-    └── 5.1-network-architecture/
+    ├── 5.1-network-architecture/
+    │   ├── README.md
+    │   ├── architecture.png
+    │   ├── configs/
+    │   │   ├── netplan/
+    │   │   └── ssh/
+    │   └── evidence/
+    └── 5.2-suricata-ids-ips/
         ├── README.md
-        ├── architecture.png
-        ├── configs/
-        │   ├── netplan/
-        │   └── ssh/
+        ├── rules/
+        │   └── custom.rules
         └── evidence/
 ```

@@ -1,0 +1,11 @@
+# Lab 5.2 - Local Suricata rules
+#
+# These rules are configured in Alert mode for normal lab operation.
+# The Drop action was tested selectively on separate signatures during
+# controlled Nmap and RDP IPS validation.
+
+alert icmp $EXTERNAL_NET any -> 10.0.50.10 any (msg:"LOCAL Traceroute packet observed to AD server"; itype:30; sid:1000001; rev:1;)
+
+alert smb $EXTERNAL_NET any -> 10.0.50.10 any (msg:"LOCAL SMB IPC$ Share Access"; smb.share; content:"IPC$"; endswith; sid:1000002; rev:1;)
+
+alert rdp any any -> 192.168.10.100 any (msg:"LOCAL RDP Traffic to Windows Client"; sid:1000003; rev:1;)
