@@ -10,7 +10,7 @@ Build the virtual network, configure Proxmox networking and OPNsense, define VLA
 
 ## Lab 5.2 – Suricata IDS/IPS on OPNsense
 
-**Status:** In progress
+**Status:** Completed
 
 Install and configure Suricata in IPS mode, select suitable rule sets, create custom detection rules, validate intrusion detection and traffic blocking, review alerts and configure logging.
 
