@@ -4,7 +4,7 @@
 ![Suricata](https://custom-icon-badges.demolab.com/badge/Suricata-EF3B2D?logo=suricata&logoColor=white)
 ![Kali Linux](https://custom-icon-badges.demolab.com/badge/Kali_Linux-557C94?logo=kalilinux&logoColor=white)
 
-**Status:** In progress
+**Status:** Completed
 
 Lab 5.2 adds network intrusion detection and prevention to the SOC environment using Suricata on OPNsense. The lab covers IPS configuration, rule sources, custom signatures and controlled tests to verify alert generation and traffic blocking.
 
