@@ -29,8 +29,8 @@ The lab is hosted on Proxmox VE. The virtual machines are separated by role, wit
 | Proxmox VE | Hypervisor |
 | OPNsense (`soc-fw-01`) | Firewall and router |
 | Windows Server (`soc-ad-01`) | Active Directory and DNS |
-| Ubuntu Server 26.04.1 (`soc-siem-01`) | SOC / Monitoring server |
-| Debian with GUI (`soc-adm-01`) | Administration workstation |
+| Ubuntu Server 24.04 (`soc-siem-01`) | SOC / Monitoring server |
+| Debian with GUI (`soc-adm`) | Administration workstation |
 | Kali Linux (`soc-attack-01`) | Attack simulation workstation |
 | Debian Server (`soc-dmz-01`) | DMZ host |
 | Windows 11 (`soc-cli-01`) | Client workstation |
@@ -79,7 +79,7 @@ Configuration: [01-network.yaml](configs/netplan/01-network.yaml)
 
 ### Administration access
 
-The administration workstation (`soc-adm-01`) is used to manage the lab systems. Remote access to the SOC server is provided over SSH on TCP port `3333`.
+The administration workstation (`soc-adm`) is used to manage the lab systems. Remote access to the SOC server is provided over SSH on TCP port `3333`.
 
 SSH is configured for public-key authentication, with password authentication and root login disabled. The effective daemon configuration was checked with `sshd -T`.
 

@@ -8,7 +8,11 @@
 
 A virtual lab focused on network administration, defensive security and security monitoring.
 
+<<<<<<< HEAD
 Hosted on **Proxmox VE**, the environment uses **OPNsense** for routing, firewalling and network segmentation. **Suricata** provides network intrusion detection and prevention (IDS/IPS), while **Wazuh** is planned for centralised security monitoring, log collection and analysis.
+=======
+Hosted on **Proxmox VE**, the environment uses **OPNsense** for routing, firewalling and network segmentation. **Suricata** provides network intrusion detection and prevention (IDS/IPS), while **Wazuh** provides centralised security monitoring, log collection and analysis.
+>>>>>>> 082eb59 (Project 5.3 Ready)
 
 **Kali Linux** is used as a supporting tool to simulate attacks and generate network traffic, allowing the defensive capabilities of the infrastructure to be tested and evaluated.
 
@@ -25,7 +29,12 @@ The project is organised into independent labs, each covering a specific aspect 
 |---|---|---|
 | [5.1 – Network Architecture & Infrastructure](labs/5.1-network-architecture/README.md) | Virtual infrastructure, VLANs, routing and basic service validation | Completed |
 | [5.2 – Suricata IDS/IPS on OPNsense](labs/5.2-suricata-ids-ips/README.md) | Network intrusion detection, prevention and alert validation | Completed |
+<<<<<<< HEAD
 | 5.3 – Wazuh SIEM | Centralised security event collection and analysis | Planned |
+=======
+| [5.3 – Wazuh SIEM](labs/5.3-wazuh-siem/README.md) | Centralised security event collection, analysis and visualisation | Completed |
+| 5.4 – Attack Simulation & Detection Validation | Controlled attack scenarios and end-to-end detection verification | Planned |
+>>>>>>> 082eb59 (Project 5.3 Ready)
 
 See [ROADMAP.md](ROADMAP.md) for the current scope.
 
@@ -37,6 +46,7 @@ See [ROADMAP.md](ROADMAP.md) for the current scope.
 ├── ROADMAP.md
 ├── .gitignore
 └── labs/
+    │
     ├── 5.1-network-architecture/
     │   ├── README.md
     │   ├── architecture.png
@@ -44,9 +54,16 @@ See [ROADMAP.md](ROADMAP.md) for the current scope.
     │   │   ├── netplan/
     │   │   └── ssh/
     │   └── evidence/
-    └── 5.2-suricata-ids-ips/
+    │
+    ├── 5.2-suricata-ids-ips/
+    │   ├── README.md
+    │   ├── rules/
+    │   │   └── custom.rules
+    │   └── evidence/
+    │
+    └── 5.3-wazuh-siem/
         ├── README.md
-        ├── rules/
-        │   └── custom.rules
+        ├── configs/
+        │   └── local_rules.xml
         └── evidence/
 ```
