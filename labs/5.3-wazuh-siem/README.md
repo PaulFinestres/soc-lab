@@ -75,13 +75,13 @@ The Debian administration workstation (`soc-adm`) also provides host-level infor
 
 ## Custom Rules
 
-Local Wazuh rules were added to improve the visibility of sudo activity. They extend the built-in rules with local descriptions and severity levels, covering failed sudo authentication and successful sudo execution events.
+Local Wazuh rules were added to improve the visibility of sudo activity. They extend the built-in rules with custom descriptions, severity levels and classifications, covering failed sudo authentication and successful sudo execution events.
 
 The configuration is maintained in [`configs/local_rules.xml`](configs/local_rules.xml). It also retains the original example SSH rule.
 
-![Custom Wazuh rules validation](evidence/05-wazuh-custom-rules-live-validation.png)
+![Custom Wazuh rules live validation](evidence/05-wazuh-custom-rules-live-validation.png)
 
-The failed sudo rule (`100100`) and first-time successful sudo rule (`100103`) were tested using `wazuh-logtest`.
+Rules `100101` and `100102` were successfully validated through live sudo activity, while rules `100100` and `100103` were tested using `wazuh-logtest`.
 
 ## Monitoring and Dashboards
 
