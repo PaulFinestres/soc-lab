@@ -79,7 +79,7 @@ Local Wazuh rules were added to improve the visibility of sudo activity. They ex
 
 The configuration is maintained in [`configs/local_rules.xml`](configs/local_rules.xml). It also retains the original example SSH rule.
 
-![Custom Wazuh rules configuration](evidence/05-wazuh-custom-rules-configuration.png)
+![Custom Wazuh rules validation](evidence/05-wazuh-custom-rules-live-validation.png)
 
 The failed sudo rule (`100100`) and first-time successful sudo rule (`100103`) were tested using `wazuh-logtest`.
 
