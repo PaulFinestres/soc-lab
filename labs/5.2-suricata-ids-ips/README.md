@@ -177,7 +177,3 @@ The tests demonstrated how network activity generated from Kali Linux can be det
 **[Lab 5.3 - Wazuh SIEM](../5.3-wazuh-siem/README.md) :** deploy a centralised security monitoring platform, integrate lab systems for security event collection, and configure event analysis and alerting.
 
 ![SOC Global overview](../5.3-wazuh-siem/evidence/03-soc-global-overview-dashboard.png)
-
-## Credits
-
-The Suricata traffic-inspection flow diagram was created with [diagrams.net (draw.io)](https://www.diagrams.net/).
