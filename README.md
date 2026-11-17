@@ -59,3 +59,9 @@ See [ROADMAP.md](ROADMAP.md) for the current scope.
         │   └── local_rules.xml
         └── evidence/
 ```
+
+
+## Credits
+
+Architecture diagram created with Excalidraw.
+Some icons are based on shapes from draw.io (diagrams.net).
